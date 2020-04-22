@@ -41,7 +41,7 @@ class ApiController extends Controller
     {
         $request = Yii::$app->request;
         
-        if (! Yii::$app->request->get('interests'))
+        if (! $request->get('interests'))
             return News::find()->orderBy(new Expression('rand()'))->one();
             
             // Request with interests id
