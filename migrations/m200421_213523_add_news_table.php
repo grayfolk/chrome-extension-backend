@@ -45,6 +45,8 @@ class m200421_213523_add_news_table extends Migration
      */
     public function safeDown()
     {
+        $this->dropForeignKey('fk_news_to_site', $this->newsTable);
+        
         $this->dropTable($this->siteTable);
     }
 }
