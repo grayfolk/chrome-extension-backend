@@ -8,7 +8,7 @@ $this->title = Yii::$app->name;
 	<div class="jumbotron">
 
 		<p>
-			<a class="btn btn-lg btn-success" href="/chrome-extension-v.0.2.zip">Download Chrome extension</a>
+			<a class="btn btn-lg btn-success" href="/chrome-extension-v.0.3.zip">Download Chrome extension</a>
 		</p>
 	</div>
 
