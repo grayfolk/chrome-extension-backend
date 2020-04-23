@@ -9,7 +9,7 @@ Require PHP7+
 - Update config/db.php with your database credentials
 - Run `composer install` in project root
 - Run `./yii migrate` for migrations
-- Setup your server for use pretty url as[ described in guide](https://www.yiiframework.com/doc/guide/2.0/en/start-installation#configuring-web-servers) (see also [notes below](#Server configuration))
+- Setup your server for use pretty url as[ described in guide](https://www.yiiframework.com/doc/guide/2.0/en/start-installation#configuring-web-servers) (see also [notes below](#server-configuration))
 - Default user credentials are hardcoded in models/User.php
 - API endpoints: `/api` for get news, `/api/interests` for get interests; for get news with interests by ids: `/api?interests[]=1&interests[]=2` etc.
 
