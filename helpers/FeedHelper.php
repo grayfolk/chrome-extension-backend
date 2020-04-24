@@ -12,12 +12,20 @@ class FeedHelper
     public static function checkUrl($url)
     {
         $client = new Client();
-        $response = $client->createRequest()->setMethod('GET')->setUrl($url)->send();
+        $response = $client->createRequest()->setOptions([
+            'followLocation' => true,
+            'maxRedirects' => 3
+        ])->setMethod('GET')->setUrl($url)->send();
         if ($response->isOk) {
-            if (stripos($response->headers['content-type'], 'text/xml') !== false) {
+            if (stripos($response->headers['content-type'], 'text/xml') !== false || stripos($response->headers['content-type'], 'application/rss+xml') !== false) {
                 // This is Xml feed
                 return $url;
             }
+            
+            // Check if xml for 301 answers
+            $xml = simplexml_load_string($response->content);
+            if ($xml != false)
+                return $url;
             
             if (stripos($response->headers['content-type'], 'text/html') !== false) {
                 // This is HTML, parse for find RSS Feed
